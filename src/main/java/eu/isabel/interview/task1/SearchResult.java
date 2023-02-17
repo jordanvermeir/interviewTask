@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * `flights` must be ordered using `Flight.bestOrdering`
+ * `flights` must be ordered using `SearchResult.best`
  */
 public final class SearchResult {
 
