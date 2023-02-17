@@ -8,15 +8,16 @@ import java.util.Comparator;
 public final class Flight {
 
     /**
+     * TODO
      *    Order by number of stops (0, 1, 2, ...) and then by price.
      *    For example, sorting the following flights
-     *    flight A: 2 stops, 100$
-     *    flight B: 0 stop , 120$
-     *    flight C: 1 stop ,  50$
-     *    flight D: 0 stop ,  80$
+     *    flight A: 2 stops, $ 100
+     *    flight B: 0 stop , $ 120
+     *    flight C: 1 stop , $  50
+     *    flight D: 0 stop , $  80
      *    produces: flight D, flight B, flight C, flight A
      */
-    public static final Comparator<Flight> bestOrdering = null; // TODO
+    public static final Comparator<Flight> bestOrdering = null;
 
     private final String flightId; // unique id per flight
     private final String airline;
