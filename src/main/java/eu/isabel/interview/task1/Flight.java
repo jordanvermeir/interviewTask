@@ -5,7 +5,13 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Comparator;
 
-public final class Flight {
+/**
+ * @param flightId unique id per flight
+ * @param numberOfStops 0 for a direct flight
+ * @param unitPrice in euros
+ */
+public record Flight(String flightId, String airline, Airport from, Airport to, Instant departureAt, Duration duration,
+                     Integer numberOfStops, Double unitPrice, String redirectLink) {
 
     /**
      * TODO
@@ -19,67 +25,8 @@ public final class Flight {
      */
     public static final Comparator<Flight> bestOrdering = null;
 
-    private final String flightId; // unique id per flight
-    private final String airline;
-    private final Airport from;
-    private final Airport to;
-    private final Instant departureAt;
-    private final Duration duration;
-    private final Integer numberOfStops; // 0 for a direct flight
-    private final Double unitPrice; // in euros
-    private final String redirectLink;
-
-    public Flight(String flightId, String airline, Airport from, Airport to, Instant departureAt,
-        Duration duration, Integer numberOfStops, Double unitPrice, String redirectLink) {
-        this.flightId = flightId;
-        this.airline = airline;
-        this.from = from;
-        this.to = to;
-        this.departureAt = departureAt;
-        this.duration = duration;
-        this.numberOfStops = numberOfStops;
-        this.unitPrice = unitPrice;
-        this.redirectLink = redirectLink;
-    }
-
     public LocalDate departureDate() {
-        return departureAt.atZone(from.getTimeZone()).toLocalDate();
-    }
-
-    public String getFlightId() {
-        return flightId;
-    }
-
-    public String getAirline() {
-        return airline;
-    }
-
-    public Airport getFrom() {
-        return from;
-    }
-
-    public Airport getTo() {
-        return to;
-    }
-
-    public Instant getDepartureAt() {
-        return departureAt;
-    }
-
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public Integer getNumberOfStops() {
-        return numberOfStops;
-    }
-
-    public Double getUnitPrice() {
-        return unitPrice;
-    }
-
-    public String getRedirectLink() {
-        return redirectLink;
+        return departureAt.atZone(from.timeZone()).toLocalDate();
     }
 
 }

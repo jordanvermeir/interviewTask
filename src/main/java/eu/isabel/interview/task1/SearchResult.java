@@ -6,13 +6,7 @@ import java.util.Optional;
 /**
  * {@link SearchResult#flights} must be ordered using {@link Flight#bestOrdering}.
  */
-public final class SearchResult {
-
-    private final List<Flight> flights;
-
-    public SearchResult(List<Flight> flights) {
-        this.flights = flights;
-    }
+public record SearchResult(List<Flight> flights) {
 
     public Optional<Flight> cheapest() {
         return Optional.empty(); // TODO
@@ -24,9 +18,5 @@ public final class SearchResult {
 
     public Optional<Flight> best() {
         return Optional.empty(); // TODO
-    }
-
-    public List<Flight> getFlights() {
-        return flights;
     }
 }

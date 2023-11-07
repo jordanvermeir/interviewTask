@@ -27,8 +27,8 @@ public interface SearchFlightService {
          *    Several clients can return data for the same flight. For example, if we combine data
          *    from British Airways and lastminute.com, lastminute.com may include flights from British Airways.
          *    Update {@link SearchFlightServiceFactory#fromTwoClients(SearchFlightClient, SearchFlightClient)} so that
-         *    if we get two or more flights with the same {@link Flight#getFlightId()}, {@link SearchFlightService}
-         *    selects the flight with the lowest {@link Flight#getUnitPrice()} and discards the other ones.
+         *    if we get two or more flights with the same {@link Flight#flightId()}, {@link SearchFlightService}
+         *    selects the flight with the lowest {@link Flight#unitPrice()} and discards the other ones.
          * <p>
          *
          * TODO 3.
