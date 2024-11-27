@@ -33,7 +33,8 @@ public class MultiClientSearchFlightService implements SearchFlightService {
 
     @Override
     public SearchResult search(Airport from, Airport to, LocalDate date) {
-        Collection<Flight> flights = clients.stream()
+        // TODO Use CompletableFuture to handle SearchFlightClient timeouts
+        Collection<Flight> flights = clients.parallelStream()
                 .flatMap(client -> {
                     try {
                         return client.search(from, to, date).stream();
