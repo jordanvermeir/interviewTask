@@ -1,11 +1,12 @@
 package eu.isabel.interview;
 
-import static eu.isabel.interview.task1.Airport.londonGatwick;
-import static eu.isabel.interview.task1.Airport.parisOrly;
+import static eu.isabel.interview.domain.models.Airport.londonGatwick;
+import static eu.isabel.interview.domain.models.Airport.parisOrly;
 
-import eu.isabel.interview.task1.Flight;
-import eu.isabel.interview.task1.SearchFlightClient.SearchFlightClientMock;
-import eu.isabel.interview.task1.SearchFlightService.SearchFlightServiceFactory;
+import eu.isabel.interview.application.services.impl.SearchFlightServiceFactory;
+import eu.isabel.interview.domain.models.Flight;
+import eu.isabel.interview.infrastructure.clients.SearchFlightClientMock;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -27,6 +28,7 @@ public final class App {
 
         final var service = SearchFlightServiceFactory.fromTwoClients(client1, client2);
         final var result = service.search(parisOrly, londonGatwick, today);
+
         System.out.println(result);
     }
 }
