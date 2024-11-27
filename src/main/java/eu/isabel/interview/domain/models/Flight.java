@@ -1,4 +1,4 @@
-package eu.isabel.interview.task1;
+package eu.isabel.interview.domain.models;
 
 import java.time.Duration;
 import java.time.Instant;

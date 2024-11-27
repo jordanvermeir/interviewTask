@@ -1,5 +1,10 @@
-package eu.isabel.interview.task1;
+package eu.isabel.interview.application.services;
 
+
+import eu.isabel.interview.application.clients.SearchFlightClient;
+import eu.isabel.interview.domain.models.Airport;
+import eu.isabel.interview.domain.models.Flight;
+import eu.isabel.interview.domain.models.SearchResult;
 
 import java.time.LocalDate;
 import java.util.List;

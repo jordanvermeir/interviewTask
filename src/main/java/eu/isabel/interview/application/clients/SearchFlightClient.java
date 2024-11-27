@@ -1,4 +1,7 @@
-package eu.isabel.interview.task1;
+package eu.isabel.interview.application.clients;
+
+import eu.isabel.interview.domain.models.Airport;
+import eu.isabel.interview.domain.models.Flight;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,13 +18,6 @@ import java.util.List;
 public interface SearchFlightClient {
 
     List<Flight> search(Airport from, Airport to, LocalDate date);
-
-    final class SearchFlightClientMock {
-
-        public static SearchFlightClient init(final List<Flight> flights) {
-            return (from, to, date) -> flights;
-        }
-    }
 
 }
 
