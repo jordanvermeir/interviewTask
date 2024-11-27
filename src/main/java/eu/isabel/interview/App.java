@@ -3,7 +3,7 @@ package eu.isabel.interview;
 import static eu.isabel.interview.domain.models.Airport.londonGatwick;
 import static eu.isabel.interview.domain.models.Airport.parisOrly;
 
-import eu.isabel.interview.application.services.SearchFlightServiceFactory;
+import eu.isabel.interview.application.services.impl.SearchFlightServiceFactory;
 import eu.isabel.interview.domain.models.Flight;
 import eu.isabel.interview.infrastructure.clients.SearchFlightClientMock;
 
@@ -28,6 +28,7 @@ public final class App {
 
         final var service = SearchFlightServiceFactory.fromTwoClients(client1, client2);
         final var result = service.search(parisOrly, londonGatwick, today);
+
         System.out.println(result);
     }
 }

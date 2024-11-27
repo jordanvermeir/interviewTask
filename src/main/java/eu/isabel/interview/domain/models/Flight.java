@@ -21,7 +21,7 @@ public record Flight(String flightId, String airline, Airport from, Airport to, 
      */
     public static final Comparator<Flight> bestOrdering = Comparator
             .comparingInt(Flight::numberOfStops)
-            .thenComparing(Flight::unitPrice);
+            .thenComparingDouble(Flight::unitPrice);
 
     public LocalDate departureDate() {
         return departureAt.atZone(from.timeZone()).toLocalDate();
