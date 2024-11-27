@@ -3,9 +3,10 @@ package eu.isabel.interview;
 import static eu.isabel.interview.domain.models.Airport.londonGatwick;
 import static eu.isabel.interview.domain.models.Airport.parisOrly;
 
+import eu.isabel.interview.application.services.SearchFlightServiceFactory;
 import eu.isabel.interview.domain.models.Flight;
 import eu.isabel.interview.infrastructure.clients.SearchFlightClientMock;
-import eu.isabel.interview.application.services.SearchFlightService.SearchFlightServiceFactory;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
