@@ -1,6 +1,7 @@
 package eu.isabel.interview.application.services;
 
 import eu.isabel.interview.application.clients.SearchFlightClient;
+import eu.isabel.interview.application.services.impl.MultiClientSearchFlightService;
 import eu.isabel.interview.domain.models.Flight;
 import eu.isabel.interview.domain.models.SearchResult;
 
@@ -39,7 +40,7 @@ public final class SearchFlightServiceFactory {
      */
     public static SearchFlightService fromTwoClients(final SearchFlightClient client1,
                                                      final SearchFlightClient client2) {
-        return (from, to, date) -> null;
+        return new MultiClientSearchFlightService(client1, client2);
     }
 
     /**
@@ -57,7 +58,7 @@ public final class SearchFlightServiceFactory {
      *    means that if one client is extremely slow, it will slow down the overall request.
      *    Implement a timeout per client so that the service doesn't spend more than 500 milliseconds per client.
      */
-    public static SearchFlightService fromClients(final List<SearchFlightClient> clients) {
-        return (from, to, date) -> null;
+    public static SearchFlightService fromClients(final SearchFlightClient ...clients) {
+        return new MultiClientSearchFlightService(clients);
     }
 }
