@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -19,6 +21,8 @@ import java.util.stream.Stream;
 public class MultiClientSearchFlightService implements SearchFlightService {
 
     private final List<SearchFlightClient> clients;
+
+    private static final Logger logger = Logger.getLogger(MultiClientSearchFlightService.class.getName());
 
     protected MultiClientSearchFlightService(SearchFlightClient ...clients) {
         if (null == clients || clients.length == 0) {
@@ -34,6 +38,7 @@ public class MultiClientSearchFlightService implements SearchFlightService {
                     try {
                         return client.search(from, to, date).stream();
                     } catch (Exception e) {
+                        logger.log(Level.WARNING, "Error: Client failed to resolve", e);
                         System.out.printf("Error: Client %s failed to resolve.%n", client.getClass().getName());
 
                         return Stream.empty();
